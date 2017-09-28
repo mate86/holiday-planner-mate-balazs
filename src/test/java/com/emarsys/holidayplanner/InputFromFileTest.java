@@ -11,8 +11,11 @@ class InputFromFileTest {
     @Test
     void testReadingFromFileToHashMap() {
         Map map = new HashMap();
-        map.put("x", null);
-        map.put("y", "z");
+        map.put("u", null);
+        map.put("v", "w");
+        map.put("w", "z");
+        map.put("x", "u");
+        map.put("y", "v");
         map.put("z", null);
 
         InputReader reader = new InputFromFile("src/test/java/resources/input.txt");

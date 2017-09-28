@@ -15,21 +15,21 @@ public class InputFromFile implements InputReader {
 
     @Override
     public Map readInput() {
-        Map map = new HashMap();
+        Map destinationProperties = new HashMap();
         try {
             Scanner scanner = new Scanner(new File(filePath));
             while (scanner.hasNext()) {
                 String[] strings = scanner.nextLine().split("=>");
                 if (strings.length == 1) {
-                    map.put(strings[0].trim(), null);
+                    destinationProperties.put(strings[0].trim(), null);
                 } else {
-                    map.put(strings[0].trim(), strings[1].trim());
+                    destinationProperties.put(strings[0].trim(), strings[1].trim());
                 }
             }
             scanner.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        return map;
+        return destinationProperties;
     }
 }
