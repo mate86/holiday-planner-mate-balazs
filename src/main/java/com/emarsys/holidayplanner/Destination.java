@@ -8,9 +8,4 @@ public class Destination {
         this.destinationName = destinationName;
         this.previousDestination = null;
     }
-
-//    public Destination(String destinationName, Destination previousDestination) {
-//        this.destinationName = destinationName;
-//        this.previousDestination = previousDestination;
-//    }
 }

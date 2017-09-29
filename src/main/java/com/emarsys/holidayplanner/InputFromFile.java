@@ -14,7 +14,7 @@ public class InputFromFile implements InputReader {
     }
 
     @Override
-    public Map readInput() {
+    public Map<String, String> readInput() {
         Map destinationProperties = new HashMap();
         try {
             Scanner scanner = new Scanner(new File(filePath));

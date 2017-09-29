@@ -5,15 +5,15 @@ import java.util.List;
 import java.util.Map;
 
 public class DestinationBuilder {
-    public List<Destination> destinationList;
     private Map<String, String> destinationProperties;
 
-    public DestinationBuilder(Map destinationProperties) {
+    public DestinationBuilder(Map<String, String> destinationProperties) {
         this.destinationProperties = destinationProperties;
-        this.destinationList = new ArrayList<>();
     }
 
-    public void createDestinationList() {
+    public List<Destination> createDestinationList() {
+        List<Destination> destinationList = new ArrayList<>();
+
         for (String key : destinationProperties.keySet()) {
             Destination destination = new Destination(key);
             destinationList.add(destination);
@@ -24,7 +24,7 @@ public class DestinationBuilder {
             String value = destinationProperties.get(destination.destinationName);
             if (value != null) {
                 for (Destination prevDest : destinationList) {
-                    if (prevDest.destinationName == value) {
+                    if (prevDest.destinationName.equals(value)) {
                         // Assigning previousDestination to actual destination
                         destination.previousDestination = prevDest;
                         break;
@@ -32,5 +32,6 @@ public class DestinationBuilder {
                 }
             }
         }
+        return destinationList;
     }
 }
